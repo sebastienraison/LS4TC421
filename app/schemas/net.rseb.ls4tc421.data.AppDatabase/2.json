@@ -1,0 +1,148 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "b816a31fdd0d8861fccdd07cd099a652",
+    "entities": [
+      {
+        "tableName": "devices",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `address` TEXT NOT NULL, `mac` TEXT NOT NULL, `lastSeenAt` INTEGER, `timeSetAt` INTEGER, `lastUploadProgramId` INTEGER, `lastUploadName` TEXT, `lastUploadSlot` INTEGER, `lastUploadAt` INTEGER, `lastUploadLevels` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mac",
+            "columnName": "mac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastSeenAt",
+            "columnName": "lastSeenAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "timeSetAt",
+            "columnName": "timeSetAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lastUploadProgramId",
+            "columnName": "lastUploadProgramId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lastUploadName",
+            "columnName": "lastUploadName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "lastUploadSlot",
+            "columnName": "lastUploadSlot",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lastUploadAt",
+            "columnName": "lastUploadAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lastUploadLevels",
+            "columnName": "lastUploadLevels",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_devices_mac",
+            "unique": true,
+            "columnNames": [
+              "mac"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_devices_mac` ON `${TABLE_NAME}` (`mac`)"
+          }
+        ]
+      },
+      {
+        "tableName": "programs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `points` TEXT NOT NULL, `symmetryAxis` INTEGER, `links` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "points",
+            "columnName": "points",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "symmetryAxis",
+            "columnName": "symmetryAxis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "links",
+            "columnName": "links",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b816a31fdd0d8861fccdd07cd099a652')"
+    ]
+  }
+}

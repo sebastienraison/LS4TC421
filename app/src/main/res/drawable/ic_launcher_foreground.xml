@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!--
+    A light bar shining on a clock face; the thick arc is the scheduled lit range.
+    Everything stays inside the 66dp safe circle (radius 33 around 54,54).
+    White with alpha only: the same drawable serves as foreground and monochrome.
+    -->
+
+    <!-- Light bar -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M43.5,24 H64.5 A3.5,3.5 0 0 1 64.5,31 H43.5 A3.5,3.5 0 0 1 43.5,24 Z" />
+
+    <!-- Rays -->
+    <path
+        android:pathData="M45,35 L43.5,39 M54,35 L54,39.5 M63,35 L64.5,39"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="3.2" />
+
+    <!-- Clock face -->
+    <path
+        android:pathData="M36,66 A18,18 0 1 1 72,66 A18,18 0 1 1 36,66 Z"
+        android:strokeAlpha="0.45"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3.5" />
+
+    <!-- Scheduled lit range, from just before 12 to 3 -->
+    <path
+        android:pathData="M49.34,48.61 A18,18 0 0 1 71.93,67.57"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="7" />
+
+    <!-- Hands -->
+    <path
+        android:pathData="M54,66 L54,55 M54,66 L62,70.5"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.5" />
+
+    <!-- Hub -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M51,66 A3,3 0 1 1 57,66 A3,3 0 1 1 51,66 Z" />
+</vector>

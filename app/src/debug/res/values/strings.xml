@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Test bench, debug builds only. English only on purpose: never translated, never released. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="bench_open">Test bench</string>
+    <string name="bench_title">Test bench · %1$s</string>
+    <string name="bench_warning">Debug tool for the J0 tests. Previews change the light at once; writes change the controller\'s memory.</string>
+
+    <string name="bench_section_states">A · Fixed states (J0c)</string>
+    <string name="bench_state_all">All %1$d %%</string>
+    <string name="bench_state_only">C%1$d only %2$d %%</string>
+    <string name="bench_state_single">C%1$d %2$d %%</string>
+    <string name="bench_preview_idle">No preview running.</string>
+    <string name="bench_preview_active">Active: %1$s · C1–C5 = %2$s · %3$s</string>
+    <string name="bench_preview_hint">Resent every second while active. Leaving this screen or the app ends the preview.</string>
+    <string name="bench_preview_send_error">Could not send the preview (network error).</string>
+    <string name="bench_end_preview">End preview</string>
+    <string name="bench_end_sending">Sending 03 08…</string>
+    <string name="bench_end_ok">Preview ended: acknowledged at %1$s.</string>
+    <string name="bench_end_no_reply">No acknowledgement after %1$d attempts.</string>
+    <string name="bench_end_unexpected">Unexpected acknowledgement %1$s (expected %2$s).</string>
+    <string name="bench_end_network">Network error: 03 08 not sent.</string>
+    <string name="bench_busy_writing">A write is running: previews are disabled.</string>
+
+    <string name="bench_section_write">B · Program write (J0a, J0b)</string>
+    <string name="bench_program_j0a">J0a · \"%1$s\"</string>
+    <string name="bench_program_j0a_text" formatted="false">The aquarium program, step 23 (11:30) corrected to C2 90 %.</string>
+    <string name="bench_program_j0b">J0b · \"%1$s\"</string>
+    <string name="bench_program_j0b_text" formatted="false">Every step at 10 % on C1–C4, C5 at 0. If it becomes the running program, the ramp visibly drops to 10 %.</string>
+    <string name="bench_slot">Slot %1$d</string>
+    <string name="bench_slot_down">Previous slot</string>
+    <string name="bench_slot_up">Next slot</string>
+    <string name="bench_write">Write</string>
+    <string name="bench_resume">Resume</string>
+    <string name="bench_busy_preview">End the preview before writing.</string>
+    <string name="bench_confirm_title">Write to the controller?</string>
+    <string name="bench_confirm_text">Program \"%1$s\" (%2$s) into slot %3$d. This changes the controller\'s memory; its effect on the running program is what the test establishes.</string>
+    <string name="bench_progress">Writing… %1$d / %2$d</string>
+    <string name="bench_failed">Failed at %1$d / %2$d (%3$s): %4$s</string>
+    <string name="bench_failed_timeout">no acknowledgement after %1$d attempts</string>
+    <string name="bench_failed_unexpected">unexpected acknowledgement %1$s, expected %2$s</string>
+    <string name="bench_failed_network">network error</string>
+    <string name="bench_resume_hint">Resume continues at the failed frame, in slot %1$d. Write starts again from the beginning.</string>
+    <string name="bench_done">Written to slot %1$d, finished at %2$s.</string>
+    <string name="bench_stage_start">01 01, start</string>
+    <string name="bench_stage_step">01 02, step %1$d at %2$s</string>
+    <string name="bench_stage_end_program">03 08, end of program</string>
+    <string name="bench_stage_finish">04 0A, finish</string>
+
+    <string name="bench_section_log">C · Frame log</string>
+    <string name="bench_log_share">Share log</string>
+    <string name="bench_log_clear">Clear</string>
+    <string name="bench_log_empty">No frame yet.</string>
+    <string name="bench_log_count">%1$d lines, newest first. Wi-Fi frames are redacted.</string>
+</resources>

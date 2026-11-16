@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Light Scheduler for TC421</string>
+    <string name="launcher_name">Light Scheduler</string>
+
+    <!-- Navigation and common actions -->
+    <string name="nav_devices">Devices</string>
+    <string name="nav_programs">Programs</string>
+    <string name="nav_settings">Settings</string>
+    <string name="action_back">Back</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_next">Next</string>
+    <string name="action_set">Set</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_more">More options</string>
+    <string name="action_search_again">Search again</string>
+    <string name="action_allow">Allow</string>
+
+    <!-- Devices list (screen 1) -->
+    <string name="devices_title">Devices</string>
+    <string name="devices_section_known">Known</string>
+    <string name="devices_section_network">On this network</string>
+    <string name="devices_empty">No controller yet. Add one by its address, or pick one found on this network.</string>
+    <string name="devices_default_name">TC421 %1$s</string>
+    <string name="device_status_checking">Checking…</string>
+    <string name="device_status_reachable">Responds</string>
+    <string name="device_status_unreachable_since">Not responding · last seen %1$s</string>
+    <string name="device_status_unreachable_never">Not responding · never seen</string>
+    <string name="device_clock_set_on">Clock set %1$s</string>
+    <string name="network_searching">Searching…</string>
+    <string name="network_on_wifi">Wi-Fi “%1$s”</string>
+    <string name="network_on_wifi_unnamed">Wi-Fi</string>
+    <string name="network_not_wifi">Not connected to Wi-Fi: the search runs only on a Wi-Fi network.</string>
+    <string name="network_none_found">No new controller found.</string>
+    <string name="network_address_updated">“%1$s” answered: its address has been updated.</string>
+    <string name="network_failed">Network error: the search could not run.</string>
+    <string name="network_add">Add</string>
+    <string name="network_hint">The search does not cross routers. From a VPN or another network, add the controller by its address.</string>
+    <string name="fab_add_by_address">Add by address</string>
+    <string name="permission_local_network">Android asks for your permission before this app can talk to devices on your local network.</string>
+
+    <!-- Add by address (screen 2) -->
+    <string name="add_title">Add by address</string>
+    <string name="add_text">The controller must be reachable from this phone, on UDP port 5000.</string>
+    <string name="add_field_address">IP address</string>
+    <string name="add_field_name">Name</string>
+    <string name="add_confirm">Test and add</string>
+    <string name="add_testing">Testing…</string>
+    <string name="add_error_invalid_address">Enter an IPv4 address, such as 192.0.2.10.</string>
+    <string name="add_error_name_required">Enter a name.</string>
+    <string name="add_error_no_reply">No reply from this address. Nothing was saved. Check the address, that the controller is powered and on a network this phone can reach.</string>
+    <string name="add_error_network">Network error. Nothing was saved.</string>
+    <string name="add_already_known">This controller is already in the list as “%1$s”. Its address was updated.</string>
+
+    <!-- Device page (screen 3) -->
+    <string name="detail_program_send">Send a program</string>
+    <string name="detail_pick_program">Send which program?</string>
+    <string name="detail_pick_program_empty">No program yet: create one in the Programs tab.</string>
+    <string name="detail_clock_label">Controller clock</string>
+    <string name="detail_clock_set_on">Set %1$s</string>
+    <string name="detail_clock_never">Not set from this app yet</string>
+    <string name="detail_phone_time">Phone: %1$s</string>
+    <string name="detail_set_phone_time">Set to phone time</string>
+    <string name="detail_set_manually">Set manually</string>
+    <string name="detail_clock_sending">Sending…</string>
+    <string name="detail_clock_ok">Clock set: the controller acknowledged.</string>
+    <string name="detail_clock_no_reply">No reply from the controller: the clock may not have been set.</string>
+    <string name="detail_clock_unexpected">The controller answered with an unexpected code: the clock may not have been set.</string>
+    <string name="detail_clock_network_error">Network error: nothing could be sent.</string>
+    <!-- Change address (D27) -->
+    <string name="detail_change_address">Change address</string>
+    <string name="address_confirm">Test and save</string>
+    <string name="address_error_other_controller">Another controller answered at this address.</string>
+    <string name="detail_rename_title">Rename controller</string>
+    <string name="detail_delete_title">Delete this controller?</string>
+    <string name="detail_delete_text">“%1$s” will be removed from this app. The controller itself is not changed.</string>
+    <string name="detail_time_title">Choose a time</string>
+
+    <!-- Controller Wi-Fi (screen 4) -->
+    <string name="wifi_title">Connection</string>
+    <string name="wifi_address_title">Address used by the app</string>
+    <string name="wifi_address_hint">The search updates it by itself.</string>
+    <string name="wifi_change_network">Change network…</string>
+    <string name="wifi_banner_title">Controller unreachable?</string>
+    <string name="wifi_banner_body">Long-press Menu on the controller: its screen shows “Set: SoftAP”. Then connect this phone to the controller’s network, whose name starts with “Smart”, and come back here.</string>
+    <string name="wifi_banner_warning">Do not use Reset: it erases the programs.</string>
+    <string name="wifi_field_network">Network</string>
+    <string name="wifi_field_password">Password</string>
+    <string name="wifi_show_password">Show password</string>
+    <string name="wifi_hide_password">Hide password</string>
+    <string name="wifi_error_too_long" tools:ignore="PluralsCandidate">%1$d bytes: the controller accepts 32 at most.</string>
+    <string name="wifi_prefill_hint">Pre-filled with this phone’s Wi-Fi network. You can type another one.</string>
+    <string name="wifi_prefill_permission">Reading the Wi-Fi network name needs the location permission (not used for location). Without it, type the name.</string>
+    <string name="wifi_security_label">Security</string>
+    <string name="wifi_security_wpa">WPA</string>
+    <string name="wifi_security_wpa2">WPA2</string>
+    <string name="wifi_security_open">Open</string>
+    <string name="wifi_cipher_aes">AES</string>
+    <string name="wifi_cipher_tkip">TKIP</string>
+    <string name="wifi_clear_text_warning">The password is sent in clear text over the local network: the protocol encrypts nothing. The app never stores it.</string>
+    <string name="wifi_send">Send this network to the controller</string>
+    <string name="wifi_sending">Sending…</string>
+    <string name="wifi_result_ok">Sent and acknowledged. The controller now tries to join the network and its address may change. If it stops responding, search for it again or change its address below.</string>
+    <string name="wifi_result_no_reply">No acknowledgement from the controller: the configuration may not have been applied. Send it again.</string>
+    <string name="wifi_result_unexpected">The controller answered with an unexpected code: the configuration may not have been applied.</string>
+    <string name="wifi_result_network_error">Network error: nothing could be sent.</string>
+    <string name="wifi_result_invalid">The configuration was refused before sending.</string>
+
+    <!-- Programs: bank (screen 5) -->
+    <string name="programs_title">Programs</string>
+    <string name="programs_empty">No program yet. Create one with “New”, or import a file from the menu.</string>
+    <string name="programs_new">New</string>
+    <string name="programs_new_title">New program</string>
+    <string name="programs_new_empty">Empty program</string>
+    <string name="programs_new_copy">Copy of an existing program</string>
+    <string name="programs_new_copy_of">Program to copy</string>
+    <string name="programs_create">Create</string>
+    <string name="programs_modified">Modified %1$s</string>
+    <string name="programs_edit">Edit</string>
+    <string name="programs_duplicate">Duplicate</string>
+    <string name="programs_duplicate_title">Duplicate program</string>
+    <string name="programs_copy_name">%1$s (copy)</string>
+    <string name="programs_rename_title">Rename program</string>
+    <string name="programs_send">Send to controller</string>
+    <string name="programs_export">Export</string>
+    <string name="programs_export_title">Export “%1$s”</string>
+    <string name="programs_export_file">Save as a file</string>
+    <string name="programs_export_share">Share</string>
+    <string name="programs_exported">Program saved to the file.</string>
+    <string name="programs_export_failed">The file could not be written.</string>
+    <string name="programs_delete_title">Delete this program?</string>
+    <string name="programs_delete_text">“%1$s” will be removed from this phone. Controllers it was sent to keep it.</string>
+    <string name="programs_import">Import a file</string>
+    <string name="programs_imported">“%1$s” imported.</string>
+    <string name="programs_import_failed_title">File refused</string>
+    <string name="import_error_too_large">The file is too large to be a program.</string>
+    <string name="import_error_not_json">The file is not readable JSON.</string>
+    <string name="import_error_not_a_program">The file is not a Light Scheduler program.</string>
+    <string name="import_error_version">The file is in version %1$s of the format, which this version of the app does not read.</string>
+    <string name="import_error_invalid">Invalid value at %1$s: %2$s.</string>
+    <string name="import_error_nothing_saved">Nothing was saved.</string>
+    <string name="program_name_label">Name</string>
+    <string name="program_name_required">Enter a name.</string>
+    <string name="program_name_too_long" tools:ignore="PluralsCandidate">%1$d characters: the controller’s screen shows 7 at most.</string>
+    <string name="program_name_refused">Letters without accents, digits, spaces and common symbols only: the controller cannot display “%1$s”.</string>
+    <string name="program_name_not_sendable">This name cannot be sent to the controller. Rename the program first.</string>
+
+    <!-- Curve editor (screens 6-7) -->
+    <string name="editor_undo">Undo</string>
+    <string name="editor_preview">Preview on the ramp</string>
+    <string name="editor_preview_on">Preview on which controller?</string>
+    <string name="editor_no_device">No controller yet: add one in the Devices tab.</string>
+    <string name="editor_saved">Saved.</string>
+    <string name="editor_unsaved_title">Unsaved changes</string>
+    <string name="editor_unsaved_text">Save the changes to this program before leaving?</string>
+    <string name="editor_discard">Discard</string>
+    <string name="editor_channel">C%1$d</string>
+    <string name="editor_channel_linked">C%1$d → C%2$d</string>
+    <string name="editor_hint">Drag a point to move it · use the overview to scroll</string>
+    <string name="editor_hint_hollow">Hollow points follow the symmetry and cannot be moved</string>
+    <string name="editor_add_point">Add a point</string>
+    <string name="editor_add_point_at">Add a point at %1$s</string>
+    <string name="editor_delete_point_at">Delete the point at %1$s</string>
+    <string name="editor_overview_description">Whole day overview, showing %1$s to %2$s in the graph below. Drag the rectangle or touch an hour to scroll.</string>
+    <string name="editor_overview_axis">Symmetry axis at %1$s.</string>
+    <string name="editor_hint_linked">This channel follows another one: its curve is computed, not edited.</string>
+    <string name="editor_symmetry">Symmetry</string>
+    <string name="editor_symmetry_hint">The fall mirrors the rise. Points after the axis are computed.</string>
+    <string name="editor_axis">Axis at %1$s</string>
+    <string name="editor_link" tools:ignore="PluralsCandidate">C%1$d follows another channel</string>
+    <string name="editor_link_hint">Its curve becomes a percentage of the chosen channel.</string>
+    <string name="editor_link_is_source">Followed by %1$s: it cannot follow another channel.</string>
+    <string name="editor_link_source">Follows</string>
+    <string name="editor_link_percent">At %1$d %%</string>
+
+    <!-- Send to controller (screen 8) -->
+    <string name="send_title">Send “%1$s”</string>
+    <string name="send_no_device">No controller yet: add one in the Devices tab.</string>
+    <string name="send_device">Controller</string>
+    <string name="send_slot_hint">Writing a slot does not change the program in service.</string>
+    <string name="send_busy">A preview is running: end it before sending.</string>
+    <string name="send_in_progress">Sending</string>
+    <string name="send_count">%1$d / %2$d</string>
+    <string name="send_retry">%1$s not acknowledged, retry %2$d of %3$d</string>
+    <string name="send_stage_start">The opening frame</string>
+    <string name="send_stage_step">Step %1$d (%2$s)</string>
+    <string name="send_stage_end_program">The end-of-program frame</string>
+    <string name="send_stage_end_exchange">The end-of-exchange frame</string>
+    <string name="send_failed_where">%1$s (frame %2$d of %3$d):</string>
+    <string name="send_failed_timeout" tools:ignore="PluralsCandidate">no acknowledgement after %1$d attempts.</string>
+    <string name="send_failed_unexpected">unexpected acknowledgement %1$s instead of %2$s.</string>
+    <string name="send_failed_network">network error.</string>
+    <string name="send_failed_restart_hint">If the controller no longer responds, restart it: it goes back to its previous program. Then try again.</string>
+    <string name="send_failed_unknown_device">the controller’s address cannot be used.</string>
+    <string name="send_failed_cancelled">cancelled.</string>
+    <string name="send_failed_close_only">“%1$s” is written in slot %2$d. Only the end of the exchange was not confirmed by the controller.</string>
+    <string name="send_resume">Resume</string>
+    <string name="send_done">Sent and acknowledged, slot %1$d.</string>
+    <string name="send_select_reminder">Select “%1$s” in the controller’s menu, then check its name on the controller screen.</string>
+    <string name="action_close">Close</string>
+
+    <!-- Empty a slot (D30) -->
+    <!-- Written on the controller: printable ASCII only, 7 characters at most (D23), checked by EmptySlotTest. -->
+    <string name="empty_slot_name">Free %1$02d</string>
+
+    <!-- Preview on the ramp -->
+    <string name="preview_title">Preview: %1$s</string>
+    <string name="preview_on_device">On %1$s, the whole day in 2 minutes.</string>
+    <string name="preview_dimmer_warning">The preview can be dimmer than the real program when several channels are high.</string>
+    <string name="preview_level">%1$d %%</string>
+    <string name="preview_play">Play</string>
+    <string name="preview_pause">Pause</string>
+    <string name="preview_end">End preview</string>
+    <string name="preview_restart">Start again</string>
+    <string name="preview_ending">Ending the preview…</string>
+    <string name="preview_ended">Preview ended: the controller is back on its program.</string>
+    <string name="preview_end_no_reply">No reply to the end of the preview: the ramp may still show it. Try again.</string>
+    <string name="preview_end_unexpected">The controller answered the end of the preview with an unexpected code. Try again.</string>
+    <string name="preview_end_network">Network error: the end of the preview could not be sent. Try again.</string>
+    <string name="preview_busy">A program is being sent: the preview cannot start.</string>
+    <string name="preview_send_error">Network error: the preview stopped. End it to give the ramp back to its program.</string>
+
+    <!-- Settings: credits (screen 10) -->
+    <string name="settings_title">Settings</string>
+    <string name="credits_section">Credits</string>
+    <!-- Settings: channel colours (D24) -->
+    <string name="settings_channel_colours">Channel colours</string>
+    <string name="settings_default_colours">Default colours</string>
+    <string name="settings_empty_slot">Emptied slot</string>
+    <string name="settings_empty_slot_numbered">Numbered (%1$s)</string>
+    <string name="settings_empty_slot_as_new">As new (no name shown)</string>
+    <string name="settings_colour_of">Colour of C%1$d</string>
+    <string name="colour_violet">Violet</string>
+    <string name="colour_ochre">Ochre</string>
+    <string name="colour_pink">Pink</string>
+    <string name="colour_brown">Brown</string>
+    <string name="colour_slate">Slate</string>
+    <string name="colour_red">Red</string>
+    <string name="colour_green">Green</string>
+    <string name="colour_blue">Blue</string>
+    <string name="colour_white">White</string>
+    <string name="colour_warm_white">Warm white</string>
+    <string name="colour_cyan">Cyan</string>
+    <string name="colour_yellow">Yellow</string>
+    <string name="colour_orange">Orange</string>
+    <string name="colour_unused">Unused</string>
+    <string name="channel_unused_lit">C%1$d is marked unused, but it has light in this program.</string>
+    <!-- Settings: exchange log (D28) -->
+    <string name="log_section">Exchange log</string>
+    <string name="log_text">The frames exchanged with your controllers, kept in memory on this phone until the app closes. Share them only if a developer asks you to: the controller’s identifier is partly hidden, Wi-Fi names and keys are removed.</string>
+    <string name="log_count" tools:ignore="PluralsCandidate">Lines in memory: %1$d</string>
+    <string name="log_share">Share</string>
+    <string name="log_clear">Clear</string>
+    <string name="log_share_failed">Could not share the log.</string>
+    <string name="credits_libraries">Libraries</string>
+    <string name="credits_license">License</string>
+    <string name="credits_license_value">GPLv3</string>
+    <string name="credits_version">Version %1$s · build of %2$s</string>
+    <string name="credits_copyright">© %1$s Sébastien Raison</string>
+    <string name="credits_notices_body">Independent app, not affiliated with the manufacturer of the TC421 controller. The TC421 name is used only to indicate compatibility. The communication protocol was independently reimplemented for interoperability. Provided without warranty (GPLv3).</string>
+    <string name="credits_disclaimer_title">Disclaimer</string>
+    <string name="credits_github_link">Source code on GitHub</string>
+    <string name="credits_privacy_link">Privacy policy</string>
+    <!-- Library names and licence are not translated. -->
+    <string name="credits_libraries_value" translatable="false">Kotlin · Coroutines · AndroidX · Jetpack Compose · Material 3 · Room · DataStore (Apache 2.0)</string>
+    <!-- PLACEHOLDER addresses (RFC 2606 reserved domain): replace with the real ones before publication.
+         The site and the privacy policy follow the language (values-fr/ has the French ones); GitHub does not. -->
+    <string name="credits_privacy_url">https://github.com/sebastienraison/LS4TC421/blob/main/PRIVACY.md</string>
+    <string name="credits_github_url" translatable="false">https://github.com/sebastienraison/LS4TC421</string>
+
+    <!-- Device page, D31: slot in service, slot grid, connection -->
+    <string name="detail_in_service_label">In service, as you declared</string>
+    <string name="detail_in_service_title">In service</string>
+    <string name="detail_in_service_none">Slot not indicated</string>
+    <string name="detail_in_service_none_hint">Read it on the controller screen.</string>
+    <string name="detail_in_service_indicate">Indicate</string>
+    <string name="detail_in_service_change">Change</string>
+    <string name="detail_in_service_written">Slot %1$d · written %2$s</string>
+    <string name="detail_in_service_emptied">Slot %1$d · emptied %2$s</string>
+    <string name="detail_connection_label">Connection</string>
+    <string name="detail_connection_value">Address and Wi-Fi network</string>
+    <string name="slots_label">Controller slots</string>
+    <string name="slots_legend_written">written by the app</string>
+    <string name="slots_legend_declared">declared empty</string>
+    <string name="slots_legend_unknown">unknown</string>
+    <string name="slots_legend_in_service">in service</string>
+    <string name="slots_empty_action">Empty…</string>
+    <string name="slot_number">Slot %1$d</string>
+    <string name="slot_title">Slot %1$d · %2$s</string>
+    <string name="slot_empty_word">empty</string>
+    <string name="slot_unknown_word">unknown</string>
+    <string name="slot_state_written">Written by the app on %1$s</string>
+    <string name="slot_state_emptied">Emptied by the app on %1$s</string>
+    <string name="slot_state_declared_empty">Declared empty on %1$s</string>
+    <string name="slot_state_unknown">Content unknown to the app</string>
+    <string name="slot_send_here">Send a program here</string>
+    <string name="slot_replay">Replay on the light</string>
+    <string name="slot_declare_active">Declare in service</string>
+    <string name="slot_empty_this">Empty this slot</string>
+    <string name="slot_forget">I no longer know what it holds</string>
+    <string name="active_pick_title">Which slot is in service?</string>
+    <string name="active_pick_hint">Read it on the controller screen, then touch it here.</string>
+    <string name="active_pick_unknown">I don’t know</string>
+
+    <!-- What does this controller hold? (D31, after « Add ») -->
+    <string name="contents_title">What does this controller hold?</string>
+    <string name="contents_text">The app cannot read its slots. Tell it where it starts from.</string>
+    <string name="contents_keep">Programs to keep</string>
+    <string name="contents_keep_hint">The 20 slots are noted “unknown”. Nothing is written.</string>
+    <string name="contents_new">Nothing: it is new or already emptied</string>
+    <string name="contents_new_hint">The 20 are noted “empty”. Nothing is written.</string>
+    <string name="contents_empty">Doesn’t matter: empty it now</string>
+    <string name="contents_empty_hint">Opens emptying, 20 slots selected.</string>
+    <string name="contents_later">Later</string>
+    <string name="contents_continue">Continue</string>
+
+    <!-- Empty by selection (D30, D31) -->
+    <plurals name="empty_selected">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <string name="empty_select_all">Select all</string>
+    <string name="empty_touch_hint">Touch the slots to empty.</string>
+    <string name="list_and">%1$s and %2$s</string>
+    <string name="empty_gets_one" tools:ignore="PluralsCandidate">Slot %1$d gets a program at 0 %%.</string>
+    <string name="empty_gets_some">Slots %1$s get a program at 0 %%.</string>
+    <string name="empty_gets_all" tools:ignore="PluralsCandidate">The %1$d slots get a program at 0 %%.</string>
+    <string name="empty_lost_one">Its current content is lost.</string>
+    <string name="empty_lost_many">Their current content is lost.</string>
+    <string name="empty_light_named">The light will go off: “%1$s”, in service, is selected.</string>
+    <string name="empty_light_slot">The light will go off: slot %1$d, in service, is selected.</string>
+    <string name="empty_generic_one">If it is the one running on the controller, the light goes off.</string>
+    <string name="empty_generic_many">If one of them is the one running on the controller, the light goes off.</string>
+    <plurals name="empty_about_seconds">
+        <item quantity="one">About %d second.</item>
+        <item quantity="other">About %d seconds.</item>
+    </plurals>
+    <plurals name="empty_about_minutes">
+        <item quantity="one">About %d minute, near the controller.</item>
+        <item quantity="other">About %d minutes, near the controller.</item>
+    </plurals>
+    <plurals name="empty_action">
+        <item quantity="one">Empty %d slot</item>
+        <item quantity="other">Empty %d slots</item>
+    </plurals>
+    <string name="empty_progress">Slot %1$d · %2$d of %3$d</string>
+    <string name="empty_stopping">Stopping after this slot…</string>
+    <string name="empty_stopped" tools:ignore="PluralsCandidate">Stopped: %1$d of %2$d slots emptied.</string>
+    <string name="empty_failed_close_only" tools:ignore="PluralsCandidate">All %1$d slots are emptied. Only the end of the exchange was not confirmed by the controller.</string>
+    <string name="empty_failed_close_only_one">The slot is emptied. Only the end of the exchange was not confirmed by the controller.</string>
+    <plurals name="empty_done">
+        <item quantity="one">%d slot emptied.</item>
+        <item quantity="other">%d slots emptied.</item>
+    </plurals>
+
+    <!-- Send sheet, D31 -->
+    <string name="send_to_device">To %1$s · choose the slot</string>
+    <string name="send_to_slot">To %1$s · slot %2$d</string>
+    <string name="send_choose_slot">Choose the slot</string>
+    <string name="send_slot_fixed">Slot %1$d</string>
+    <string name="send_action_slot">Send to slot %1$d</string>
+    <string name="send_declare_active">Done, it is in service</string>
+    <string name="send_declared" tools:ignore="PluralsCandidate">Slot %1$d declared in service.</string>
+
+    <!-- Connection screen, D31 -->
+    <string name="wifi_network_title">Controller Wi-Fi network</string>
+    <string name="wifi_network_headline">Make it join another network</string>
+    <string name="wifi_network_hint">Written on the controller; its address may change.</string>
+    <string name="wifi_address_warning">Only change it if you know precisely what you are doing: routed network, VPN, filtered broadcast.</string>
+</resources>

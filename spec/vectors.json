@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "description": "Reference frames for the TC421 UDP protocol. Every frame is 64 bytes, hex-encoded (128 lowercase characters). The MAC is fictitious. 'status' is 'observed' when the exchange was seen working on a real controller, 'derived-unverified' when it is only deduced from the specification. Requests: 'call' names the builder, 'params' its arguments (offsets and checksum follow docs/PROTOCOL.md). Responses: 'expected' is what a reader must extract; the checksum byte of a response must never be checked.",
+  "mac": "AABBCCDDEEFF",
+  "vectors": [
+    {
+      "name": "search",
+      "description": "Discovery request (17). No MAC in the frame. Sent by broadcast or, as observed, by unicast.",
+      "direction": "request",
+      "status": "observed",
+      "call": "search",
+      "params": {},
+      "hex": "55aa17000003ddeeff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e30000"
+    },
+    {
+      "name": "time_sync",
+      "description": "Set the controller clock (02) to 2026-11-11 14:44:26. Acknowledged with 0x85 on a real unit.",
+      "direction": "request",
+      "status": "observed",
+      "call": "timeSync",
+      "params": {
+        "year": 2026,
+        "month": 11,
+        "day": 11,
+        "hour": 14,
+        "minute": 44,
+        "second": 26
+      },
+      "hex": "55aa0200000707ea0b0b0e2c1a000000000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646630000"
+    },
+    {
+      "name": "start_download",
+      "description": "Open the write of a program (01 01): slot 3, name \"Aquarium\". Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "startDownload",
+      "params": {
+        "slot": 3,
+        "name": "Aquarium"
+      },
+      "hex": "55aa0101000803417175617269756d00000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646510000"
+    },
+    {
+      "name": "start_download_slot0_short_name",
+      "description": "Open the write of a program (01 01): slot 0, name \"A\". Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "startDownload",
+      "params": {
+        "slot": 0,
+        "name": "A"
+      },
+      "hex": "55aa0101000100410000000000000000000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646430000"
+    },
+    {
+      "name": "download_step_first",
+      "description": "Write step 0 (01 02): 00:00, all channels off. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "downloadStep",
+      "params": {
+        "step": 0,
+        "channels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "hex": "55aa01020008000000000000000000000000000000000000000000000000000000000000000000000000000000000000004141424243434444454546460a0000"
+    },
+    {
+      "name": "download_step_mid",
+      "description": "Write step 17 (01 02): 08:30, channels 100/90/100/100/0. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "downloadStep",
+      "params": {
+        "step": 17,
+        "channels": [
+          100,
+          90,
+          100,
+          100,
+          0
+        ]
+      },
+      "hex": "55aa0102000811081e645a6464000000000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646c70000"
+    },
+    {
+      "name": "download_step_last",
+      "description": "Write step 47 (01 02): 23:30, channels 1/2/3/4/5. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "downloadStep",
+      "params": {
+        "step": 47,
+        "channels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "hex": "55aa010200082f171e010203040500000000000000000000000000000000000000000000000000000000000000000000004141424243434444454546467d0000"
+    },
+    {
+      "name": "stop_all_process",
+      "description": "End of a program write (04 0A). Role deduced from the original app. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "stopAllProcess",
+      "params": {},
+      "hex": "55aa040a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004141424243434444454546460d0000"
+    },
+    {
+      "name": "stop_process",
+      "description": "End of preview / back to the stored program (03 08). Acknowledged with 0x83 on a real unit.",
+      "direction": "request",
+      "status": "observed",
+      "call": "stopProcess",
+      "params": {},
+      "hex": "55aa03080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004141424243434444454546460a0000"
+    },
+    {
+      "name": "preview_start",
+      "description": "Start a preview (06 01), name \"test\". No reply on a real unit.",
+      "direction": "request",
+      "status": "observed",
+      "call": "previewStart",
+      "params": {
+        "name": "test"
+      },
+      "hex": "55aa0601000474657374000000000000000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646ca0000"
+    },
+    {
+      "name": "preview_values",
+      "description": "Live preview values (06 02), five channels at 10 %. No reply on a real unit.",
+      "direction": "request",
+      "status": "observed",
+      "call": "previewValues",
+      "params": {
+        "channels": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "hex": "55aa060200050a0a0a0a0a00000000000000000000000000000000000000000000000000000000000000000000000000004141424243434444454546463e0000"
+    },
+    {
+      "name": "wifi_ssid_wpa2_aes",
+      "description": "Join a protected network, step 1 (18, sub-command 1 at byte 6, text from byte 7): SSID, WPA2 (2) and AES (1) at offsets 39 and 40. Acknowledged with 0x70. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "wifiSsid",
+      "params": {
+        "ssid": "TestNet",
+        "security": "WPA2",
+        "cipher": "AES"
+      },
+      "hex": "55aa1800000701546573744e65740000000000000000000000000000000000000000000000000002010000000000000000414142424343444445454646e90000"
+    },
+    {
+      "name": "wifi_ssid_wpa_tkip_max_length",
+      "description": "Join a protected network, step 1 (18, sub-command 1 at byte 6, text from byte 7): 32-byte SSID, WPA (1) and TKIP (2). Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "wifiSsid",
+      "params": {
+        "ssid": "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+        "security": "WPA",
+        "cipher": "TKIP"
+      },
+      "hex": "55aa18000020015353535353535353535353535353535353535353535353535353535353535353010200000000000000004141424243434444454546469b0000"
+    },
+    {
+      "name": "wifi_password",
+      "description": "Join a protected network, step 2 (18, sub-command 2): passphrase. Acknowledged with 0x72. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "wifiPassword",
+      "params": {
+        "password": "secret-pass"
+      },
+      "hex": "55aa1800000b027365637265742d70617373000000000000000000000000000000000000000000000000000000000000004141424243434444454546468e0000"
+    },
+    {
+      "name": "wifi_open_ssid",
+      "description": "Join an open network (18, sub-command 3): SSID only. Acknowledged with 0x74. Never tested on a real unit.",
+      "direction": "request",
+      "status": "derived-unverified",
+      "call": "wifiOpenSsid",
+      "params": {
+        "ssid": "OpenNet"
+      },
+      "hex": "55aa18000007034f70656e4e65740000000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646da0000"
+    },
+    {
+      "name": "reply_discovery",
+      "description": "Discovery reply as observed: MAC in bytes 4..15, byte 61 not significant (formula unknown).",
+      "direction": "response",
+      "status": "observed",
+      "expected": {
+        "kind": "discovery",
+        "mac": "AABBCCDDEEFF"
+      },
+      "hex": "880017004141424243434444454546460000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009f0000"
+    },
+    {
+      "name": "ack_time_sync",
+      "description": "Acknowledgement of 02 as observed: byte 2 is 0x03 (not the command), ack code 0x85 at byte 4 overwriting the first MAC character, MAC again at 49..60. Bytes 16..48 assumed zero (not captured). Byte 61 not significant.",
+      "direction": "response",
+      "status": "observed",
+      "expected": {
+        "kind": "ack",
+        "ackCode": 133,
+        "mac": "AABBCCDDEEFF"
+      },
+      "hex": "88000300854142424343444445454646000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646af0000"
+    },
+    {
+      "name": "ack_stop_process",
+      "description": "Acknowledgement of 03 08 as observed: byte 2 is 0x11, ack code 0x83. Bytes 16..48 assumed zero (not captured). Byte 61 not significant.",
+      "direction": "response",
+      "status": "observed",
+      "expected": {
+        "kind": "ack",
+        "ackCode": 131,
+        "mac": "AABBCCDDEEFF"
+      },
+      "hex": "88001100834142424343444445454646000000000000000000000000000000000000000000000000000000000000000000414142424343444445454646cb0000"
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Light Scheduler for TC421</string>
+    <string name="launcher_name">Light Scheduler</string>
+
+    <!-- Navigation et actions communes -->
+    <string name="nav_devices">Boîtiers</string>
+    <string name="nav_programs">Programmes</string>
+    <string name="nav_settings">Réglages</string>
+    <string name="action_back">Retour</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="action_ok">OK</string>
+    <string name="action_next">Suivant</string>
+    <string name="action_set">Régler</string>
+    <string name="action_save">Enregistrer</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_rename">Renommer</string>
+    <string name="action_more">Plus d’options</string>
+    <string name="action_search_again">Relancer la recherche</string>
+    <string name="action_allow">Autoriser</string>
+
+    <!-- Liste des boîtiers (écran 1) -->
+    <string name="devices_title">Boîtiers</string>
+    <string name="devices_section_known">Connus</string>
+    <string name="devices_section_network">Sur ce réseau</string>
+    <string name="devices_empty">Aucun boîtier pour l’instant. Ajoutez-en un par son adresse, ou choisissez-en un trouvé sur ce réseau.</string>
+    <string name="devices_default_name">TC421 %1$s</string>
+    <string name="device_status_checking">Vérification…</string>
+    <string name="device_status_reachable">Répond</string>
+    <string name="device_status_unreachable_since">Ne répond pas · vu le %1$s</string>
+    <string name="device_status_unreachable_never">Ne répond pas · jamais vu</string>
+    <string name="device_clock_set_on">Heure réglée le %1$s</string>
+    <string name="network_searching">Recherche…</string>
+    <string name="network_on_wifi">Wi-Fi « %1$s »</string>
+    <string name="network_on_wifi_unnamed">Wi-Fi</string>
+    <string name="network_not_wifi">Pas connecté en Wi-Fi : la recherche ne fonctionne que sur un réseau Wi-Fi.</string>
+    <string name="network_none_found">Aucun nouveau boîtier trouvé.</string>
+    <string name="network_address_updated">« %1$s » a répondu : son adresse a été mise à jour.</string>
+    <string name="network_failed">Erreur réseau : la recherche n’a pas pu s’exécuter.</string>
+    <string name="network_add">Ajouter</string>
+    <string name="network_hint">La recherche ne traverse pas les routeurs. Depuis un VPN ou un autre réseau, ajoutez le boîtier par son adresse.</string>
+    <string name="fab_add_by_address">Ajouter par adresse</string>
+    <string name="permission_local_network">Android demande votre autorisation avant que cette app puisse communiquer avec les appareils de votre réseau local.</string>
+
+    <!-- Ajouter par adresse (écran 2) -->
+    <string name="add_title">Ajouter par adresse</string>
+    <string name="add_text">Le boîtier doit être joignable depuis ce téléphone, port UDP 5000.</string>
+    <string name="add_field_address">Adresse IP</string>
+    <string name="add_field_name">Nom</string>
+    <string name="add_confirm">Tester et ajouter</string>
+    <string name="add_testing">Test en cours…</string>
+    <string name="add_error_invalid_address">Saisissez une adresse IPv4, par exemple 192.0.2.10.</string>
+    <string name="add_error_name_required">Saisissez un nom.</string>
+    <string name="add_error_no_reply">Aucune réponse de cette adresse. Rien n’a été enregistré. Vérifiez l’adresse, que le boîtier est alimenté et sur un réseau que ce téléphone peut joindre.</string>
+    <string name="add_error_network">Erreur réseau. Rien n’a été enregistré.</string>
+    <string name="add_already_known">Ce boîtier est déjà dans la liste sous le nom « %1$s ». Son adresse a été mise à jour.</string>
+
+    <!-- Fiche du boîtier (écran 3) -->
+    <string name="detail_program_send">Envoyer un programme</string>
+    <string name="detail_pick_program">Envoyer quel programme ?</string>
+    <string name="detail_pick_program_empty">Aucun programme pour l’instant : créez-en un dans l’onglet Programmes.</string>
+    <string name="detail_clock_label">Heure du boîtier</string>
+    <string name="detail_clock_set_on">Réglée le %1$s</string>
+    <string name="detail_clock_never">Pas encore réglée depuis l’app</string>
+    <string name="detail_phone_time">Téléphone : %1$s</string>
+    <string name="detail_set_phone_time">Mettre à l’heure</string>
+    <string name="detail_set_manually">Régler à la main</string>
+    <string name="detail_clock_sending">Envoi en cours…</string>
+    <string name="detail_clock_ok">Heure réglée : le boîtier a accusé réception.</string>
+    <string name="detail_clock_no_reply">Pas de réponse du boîtier : l’heure n’a peut-être pas été réglée.</string>
+    <string name="detail_clock_unexpected">Le boîtier a répondu avec un code inattendu : l’heure n’a peut-être pas été réglée.</string>
+    <string name="detail_clock_network_error">Erreur réseau : rien n’a pu être envoyé.</string>
+    <!-- Modifier l'adresse (D27) -->
+    <string name="detail_change_address">Modifier l’adresse</string>
+    <string name="address_confirm">Tester et enregistrer</string>
+    <string name="address_error_other_controller">Un autre boîtier a répondu à cette adresse.</string>
+    <string name="detail_rename_title">Renommer le boîtier</string>
+    <string name="detail_delete_title">Supprimer ce boîtier ?</string>
+    <string name="detail_delete_text">« %1$s » sera retiré de cette app. Le boîtier lui-même n’est pas modifié.</string>
+    <string name="detail_time_title">Choisir l’heure</string>
+
+    <!-- Wi-Fi du boîtier (écran 4) -->
+    <string name="wifi_title">Connexion</string>
+    <string name="wifi_address_title">Adresse utilisée par l’app</string>
+    <string name="wifi_address_hint">La recherche la met à jour seule.</string>
+    <string name="wifi_change_network">Changer de réseau…</string>
+    <string name="wifi_banner_title">Boîtier injoignable ?</string>
+    <string name="wifi_banner_body">Appuyez longuement sur Menu du boîtier : son écran affiche « Set: SoftAP ». Connectez ensuite ce téléphone au réseau du boîtier, dont le nom commence par « Smart », puis revenez ici.</string>
+    <string name="wifi_banner_warning">N’utilisez pas Reset : il efface les programmes.</string>
+    <string name="wifi_field_network">Réseau</string>
+    <string name="wifi_field_password">Mot de passe</string>
+    <string name="wifi_show_password">Afficher le mot de passe</string>
+    <string name="wifi_hide_password">Masquer le mot de passe</string>
+    <string name="wifi_error_too_long" tools:ignore="PluralsCandidate">%1$d octets : le boîtier en accepte 32 au plus.</string>
+    <string name="wifi_prefill_hint">Prérempli avec le réseau Wi-Fi de ce téléphone. Vous pouvez en saisir un autre.</string>
+    <string name="wifi_prefill_permission">Lire le nom du réseau Wi-Fi demande la permission de localisation (non utilisée pour vous localiser). Sans elle, saisissez le nom.</string>
+    <string name="wifi_security_label">Sécurité</string>
+    <string name="wifi_security_wpa">WPA</string>
+    <string name="wifi_security_wpa2">WPA2</string>
+    <string name="wifi_security_open">Ouvert</string>
+    <string name="wifi_cipher_aes">AES</string>
+    <string name="wifi_cipher_tkip">TKIP</string>
+    <string name="wifi_clear_text_warning">Le mot de passe part en clair sur le réseau local : le protocole ne chiffre rien. L’app ne le conserve jamais.</string>
+    <string name="wifi_send">Envoyer ce réseau au boîtier</string>
+    <string name="wifi_sending">Envoi en cours…</string>
+    <string name="wifi_result_ok">Envoyé et acquitté. Le boîtier tente maintenant de rejoindre le réseau et son adresse peut changer. S’il ne répond plus, relancez la recherche ou modifiez son adresse ci-dessous.</string>
+    <string name="wifi_result_no_reply">Pas d’accusé de réception du boîtier : la configuration n’a peut-être pas été appliquée. Renvoyez-la.</string>
+    <string name="wifi_result_unexpected">Le boîtier a répondu avec un code inattendu : la configuration n’a peut-être pas été appliquée.</string>
+    <string name="wifi_result_network_error">Erreur réseau : rien n’a pu être envoyé.</string>
+    <string name="wifi_result_invalid">La configuration a été refusée avant l’envoi.</string>
+
+    <!-- Programmes : banque (écran 5) -->
+    <string name="programs_title">Programmes</string>
+    <string name="programs_empty">Aucun programme pour l’instant. Créez-en un avec « Nouveau », ou importez un fichier depuis le menu.</string>
+    <string name="programs_new">Nouveau</string>
+    <string name="programs_new_title">Nouveau programme</string>
+    <string name="programs_new_empty">Programme vide</string>
+    <string name="programs_new_copy">Copie d’un programme existant</string>
+    <string name="programs_new_copy_of">Programme à copier</string>
+    <string name="programs_create">Créer</string>
+    <string name="programs_modified">Modifié le %1$s</string>
+    <string name="programs_edit">Modifier</string>
+    <string name="programs_duplicate">Dupliquer</string>
+    <string name="programs_duplicate_title">Dupliquer le programme</string>
+    <string name="programs_copy_name">%1$s (copie)</string>
+    <string name="programs_rename_title">Renommer le programme</string>
+    <string name="programs_send">Envoyer au boîtier</string>
+    <string name="programs_export">Exporter</string>
+    <string name="programs_export_title">Exporter « %1$s »</string>
+    <string name="programs_export_file">Enregistrer dans un fichier</string>
+    <string name="programs_export_share">Partager</string>
+    <string name="programs_exported">Programme enregistré dans le fichier.</string>
+    <string name="programs_export_failed">Le fichier n’a pas pu être écrit.</string>
+    <string name="programs_delete_title">Supprimer ce programme ?</string>
+    <string name="programs_delete_text">« %1$s » sera retiré de ce téléphone. Les boîtiers qui l’ont reçu le gardent.</string>
+    <string name="programs_import">Importer un fichier</string>
+    <string name="programs_imported">« %1$s » importé.</string>
+    <string name="programs_import_failed_title">Fichier refusé</string>
+    <string name="import_error_too_large">Le fichier est trop gros pour être un programme.</string>
+    <string name="import_error_not_json">Le fichier n’est pas du JSON lisible.</string>
+    <string name="import_error_not_a_program">Le fichier n’est pas un programme Light Scheduler.</string>
+    <string name="import_error_version">Le fichier est dans la version %1$s du format, que cette version de l’app ne sait pas lire.</string>
+    <string name="import_error_invalid">Valeur invalide en %1$s : %2$s.</string>
+    <string name="import_error_nothing_saved">Rien n’a été enregistré.</string>
+    <string name="program_name_label">Nom</string>
+    <string name="program_name_required">Saisissez un nom.</string>
+    <string name="program_name_too_long" tools:ignore="PluralsCandidate">%1$d caractères : l’écran du boîtier en affiche 7 au plus.</string>
+    <string name="program_name_refused">Lettres sans accent, chiffres, espaces et symboles courants seulement : le boîtier ne sait pas afficher « %1$s ».</string>
+    <string name="program_name_not_sendable">Ce nom ne peut pas être envoyé au boîtier. Renommez d’abord le programme.</string>
+
+    <!-- Éditeur de courbe (écrans 6-7) -->
+    <string name="editor_undo">Annuler la modification</string>
+    <string name="editor_preview">Aperçu sur la rampe</string>
+    <string name="editor_preview_on">Aperçu sur quel boîtier ?</string>
+    <string name="editor_no_device">Aucun boîtier pour l’instant : ajoutez-en un dans l’onglet Boîtiers.</string>
+    <string name="editor_saved">Enregistré.</string>
+    <string name="editor_unsaved_title">Modifications non enregistrées</string>
+    <string name="editor_unsaved_text">Enregistrer les modifications de ce programme avant de quitter ?</string>
+    <string name="editor_discard">Abandonner</string>
+    <string name="editor_channel">C%1$d</string>
+    <string name="editor_channel_linked">C%1$d → C%2$d</string>
+    <string name="editor_hint">Glisser un point pour le déplacer · la vue d’ensemble fait défiler</string>
+    <string name="editor_hint_hollow">Points creux : calculés par la symétrie, non déplaçables</string>
+    <string name="editor_add_point">Ajouter un point</string>
+    <string name="editor_add_point_at">Ajouter un point à %1$s</string>
+    <string name="editor_delete_point_at">Supprimer le point de %1$s</string>
+    <string name="editor_overview_description">Vue d’ensemble de la journée, le graphique en dessous montre de %1$s à %2$s. Faire glisser le rectangle ou toucher une heure pour faire défiler.</string>
+    <string name="editor_overview_axis">Axe de symétrie à %1$s.</string>
+    <string name="editor_hint_linked">Ce canal suit un autre canal : sa courbe est calculée, pas éditée.</string>
+    <string name="editor_symmetry">Symétrie</string>
+    <string name="editor_symmetry_hint">La descente suit la montée en miroir. Les points après l’axe sont calculés.</string>
+    <string name="editor_axis">Axe à %1$s</string>
+    <string name="editor_link" tools:ignore="PluralsCandidate">C%1$d suit un autre canal</string>
+    <string name="editor_link_hint">Sa courbe devient un pourcentage du canal choisi.</string>
+    <string name="editor_link_is_source">Suivi par %1$s : il ne peut pas suivre un autre canal.</string>
+    <string name="editor_link_source">Suit</string>
+    <string name="editor_link_percent">À %1$d %%</string>
+
+    <!-- Envoi au boîtier (écran 8) -->
+    <string name="send_title">Envoyer « %1$s »</string>
+    <string name="send_no_device">Aucun boîtier pour l’instant : ajoutez-en un dans l’onglet Boîtiers.</string>
+    <string name="send_device">Boîtier</string>
+    <string name="send_slot_hint">Écrire un emplacement ne change pas le programme en service.</string>
+    <string name="send_busy">Un aperçu est en cours : terminez-le avant d’envoyer.</string>
+    <string name="send_in_progress">Envoi en cours</string>
+    <string name="send_count">%1$d / %2$d</string>
+    <string name="send_retry">%1$s sans accusé, nouvel essai %2$d sur %3$d</string>
+    <string name="send_stage_start">La trame d’ouverture</string>
+    <string name="send_stage_step">Pas %1$d (%2$s)</string>
+    <string name="send_stage_end_program">La trame de fin du programme</string>
+    <string name="send_stage_end_exchange">La trame de fin d’échange</string>
+    <string name="send_failed_where">%1$s (trame %2$d sur %3$d) :</string>
+    <string name="send_failed_timeout" tools:ignore="PluralsCandidate">aucun accusé après %1$d essais.</string>
+    <string name="send_failed_unexpected">accusé inattendu %1$s au lieu de %2$s.</string>
+    <string name="send_failed_network">erreur réseau.</string>
+    <string name="send_failed_restart_hint">Si le boîtier ne répond plus, redémarrez-le : il revient à son programme précédent. Puis réessayez.</string>
+    <string name="send_failed_unknown_device">l’adresse du boîtier est inutilisable.</string>
+    <string name="send_failed_cancelled">annulé.</string>
+    <string name="send_failed_close_only">« %1$s » est écrit dans l’emplacement %2$d. Seule la fin de l’échange n’a pas été confirmée par le boîtier.</string>
+    <string name="send_resume">Reprendre</string>
+    <string name="send_done">Envoyé et accusé, emplacement %1$d.</string>
+    <string name="send_select_reminder">Sélectionnez « %1$s » dans le menu du boîtier, puis vérifiez son nom sur l’écran du boîtier.</string>
+    <string name="action_close">Fermer</string>
+
+    <!-- Vider un emplacement (D30) -->
+    <!-- Écrit sur le boîtier : ASCII imprimable seulement, 7 caractères au plus (D23), vérifié par EmptySlotTest. -->
+    <string name="empty_slot_name">Vide %1$02d</string>
+
+    <!-- Aperçu sur la rampe -->
+    <string name="preview_title">Aperçu : %1$s</string>
+    <string name="preview_on_device">Sur %1$s, la journée entière en 2 minutes.</string>
+    <string name="preview_dimmer_warning">L’aperçu peut être moins lumineux que le programme réel quand plusieurs canaux sont hauts.</string>
+    <string name="preview_level">%1$d %%</string>
+    <string name="preview_play">Lecture</string>
+    <string name="preview_pause">Pause</string>
+    <string name="preview_end">Terminer l’aperçu</string>
+    <string name="preview_restart">Recommencer</string>
+    <string name="preview_ending">Fin de l’aperçu…</string>
+    <string name="preview_ended">Aperçu terminé : le boîtier est revenu à son programme.</string>
+    <string name="preview_end_no_reply">Pas de réponse à la fin de l’aperçu : la rampe l’affiche peut-être encore. Réessayez.</string>
+    <string name="preview_end_unexpected">Le boîtier a répondu à la fin de l’aperçu avec un code inattendu. Réessayez.</string>
+    <string name="preview_end_network">Erreur réseau : la fin de l’aperçu n’a pas pu être envoyée. Réessayez.</string>
+    <string name="preview_busy">Un programme est en cours d’envoi : l’aperçu ne peut pas démarrer.</string>
+    <string name="preview_send_error">Erreur réseau : l’aperçu s’est arrêté. Terminez-le pour rendre la rampe à son programme.</string>
+
+    <!-- Réglages : crédits (écran 10) -->
+    <string name="settings_title">Réglages</string>
+    <string name="credits_section">Crédits</string>
+    <!-- Réglages : couleurs des canaux (D24) -->
+    <string name="settings_channel_colours">Couleurs des canaux</string>
+    <string name="settings_default_colours">Couleurs par défaut</string>
+    <string name="settings_empty_slot">Emplacement vidé</string>
+    <string name="settings_empty_slot_numbered">Numéroté (%1$s)</string>
+    <string name="settings_empty_slot_as_new">Comme neuf (aucun nom affiché)</string>
+    <string name="settings_colour_of">Couleur de C%1$d</string>
+    <string name="colour_violet">Violet</string>
+    <string name="colour_ochre">Ocre</string>
+    <string name="colour_pink">Rose</string>
+    <string name="colour_brown">Brun</string>
+    <string name="colour_slate">Ardoise</string>
+    <string name="colour_red">Rouge</string>
+    <string name="colour_green">Vert</string>
+    <string name="colour_blue">Bleu</string>
+    <string name="colour_white">Blanc</string>
+    <string name="colour_warm_white">Blanc chaud</string>
+    <string name="colour_cyan">Cyan</string>
+    <string name="colour_yellow">Jaune</string>
+    <string name="colour_orange">Orange</string>
+    <string name="colour_unused">Non utilisé</string>
+    <string name="channel_unused_lit">C%1$d est marqué non utilisé, mais il a de la lumière dans ce programme.</string>
+    <!-- Réglages : journal des échanges (D28) -->
+    <string name="log_section">Journal des échanges</string>
+    <string name="log_text">Les trames échangées avec vos boîtiers, gardées en mémoire sur ce téléphone jusqu’à la fermeture de l’app. Ne les partagez que si un développeur vous le demande : l’identifiant du boîtier est en partie masqué, les noms et clés Wi-Fi sont retirés.</string>
+    <string name="log_count" tools:ignore="PluralsCandidate">Lignes en mémoire : %1$d</string>
+    <string name="log_share">Partager</string>
+    <string name="log_clear">Effacer</string>
+    <string name="log_share_failed">Impossible de partager le journal.</string>
+    <string name="credits_libraries">Bibliothèques</string>
+    <string name="credits_license">Licence</string>
+    <string name="credits_license_value">GPLv3</string>
+    <string name="credits_version">Version %1$s · build du %2$s</string>
+    <string name="credits_copyright">© %1$s Sébastien Raison</string>
+    <string name="credits_notices_body">Application indépendante, non affiliée au fabricant du contrôleur TC421. Le nom TC421 n’est cité que pour indiquer la compatibilité. Le protocole de communication a été réimplémenté de façon indépendante, à des fins d’interopérabilité. Fournie sans garantie (GPLv3).</string>
+    <string name="credits_disclaimer_title">Avertissement</string>
+    <string name="credits_github_link">Code source sur GitHub</string>
+    <string name="credits_privacy_link">Politique de confidentialité</string>
+    <!-- PLACEHOLDER addresses (RFC 2606 reserved domain): replace with the real ones before publication. -->
+    <string name="credits_privacy_url">https://github.com/sebastienraison/LS4TC421/blob/main/PRIVACY.fr.md</string>
+
+    <!-- Fiche du boîtier, D31 : emplacement en service, grille, connexion -->
+    <string name="detail_in_service_label">En service, d’après vous</string>
+    <string name="detail_in_service_title">En service</string>
+    <string name="detail_in_service_none">Emplacement non indiqué</string>
+    <string name="detail_in_service_none_hint">Lisez-le sur l’écran du boîtier.</string>
+    <string name="detail_in_service_indicate">Indiquer</string>
+    <string name="detail_in_service_change">Changer</string>
+    <string name="detail_in_service_written">Emplacement %1$d · écrit le %2$s</string>
+    <string name="detail_in_service_emptied">Emplacement %1$d · vidé le %2$s</string>
+    <string name="detail_connection_label">Connexion</string>
+    <string name="detail_connection_value">Adresse et réseau Wi-Fi</string>
+    <string name="slots_label">Emplacements du boîtier</string>
+    <string name="slots_legend_written">écrit par l’app</string>
+    <string name="slots_legend_declared">déclaré vide</string>
+    <string name="slots_legend_unknown">inconnu</string>
+    <string name="slots_legend_in_service">en service</string>
+    <string name="slots_empty_action">Vider…</string>
+    <string name="slot_number">Emplacement %1$d</string>
+    <string name="slot_title">Emplacement %1$d · %2$s</string>
+    <string name="slot_empty_word">vide</string>
+    <string name="slot_unknown_word">inconnu</string>
+    <string name="slot_state_written">Écrit par l’app le %1$s</string>
+    <string name="slot_state_emptied">Vidé par l’app le %1$s</string>
+    <string name="slot_state_declared_empty">Déclaré vide le %1$s</string>
+    <string name="slot_state_unknown">Contenu inconnu de l’app</string>
+    <string name="slot_send_here">Envoyer un programme ici</string>
+    <string name="slot_replay">Rejouer sur la rampe</string>
+    <string name="slot_declare_active">Déclarer en service</string>
+    <string name="slot_empty_this">Vider cet emplacement</string>
+    <string name="slot_forget">Je ne sais plus ce qu’il contient</string>
+    <string name="active_pick_title">Quel emplacement est en service ?</string>
+    <string name="active_pick_hint">Lisez-le sur l’écran du boîtier, puis touchez-le ici.</string>
+    <string name="active_pick_unknown">Je ne sais pas</string>
+
+    <!-- Que contient ce boîtier ? (D31, après « Ajouter ») -->
+    <string name="contents_title">Que contient ce boîtier ?</string>
+    <string name="contents_text">L’app ne peut pas lire ses emplacements. Dites-lui d’où elle part.</string>
+    <string name="contents_keep">Des programmes à garder</string>
+    <string name="contents_keep_hint">Les 20 emplacements sont notés « inconnu ». Rien n’est écrit.</string>
+    <string name="contents_new">Rien : il est neuf ou déjà vidé</string>
+    <string name="contents_new_hint">Les 20 sont notés « vide ». Rien n’est écrit.</string>
+    <string name="contents_empty">Peu importe : le vider maintenant</string>
+    <string name="contents_empty_hint">Ouvre le vidage, 20 emplacements cochés.</string>
+    <string name="contents_later">Plus tard</string>
+    <string name="contents_continue">Continuer</string>
+
+    <!-- Vider par sélection (D30, D31) -->
+    <plurals name="empty_selected">
+        <item quantity="one">%d sélectionné</item>
+        <item quantity="many">%d sélectionnés</item>
+        <item quantity="other">%d sélectionnés</item>
+    </plurals>
+    <string name="empty_select_all">Tout sélectionner</string>
+    <string name="empty_touch_hint">Touchez les emplacements à vider.</string>
+    <string name="list_and">%1$s et %2$s</string>
+    <string name="empty_gets_one" tools:ignore="PluralsCandidate">L’emplacement %1$d reçoit un programme à 0 %%.</string>
+    <string name="empty_gets_some">Les emplacements %1$s reçoivent un programme à 0 %%.</string>
+    <string name="empty_gets_all" tools:ignore="PluralsCandidate">Les %1$d emplacements reçoivent un programme à 0 %%.</string>
+    <string name="empty_lost_one">Son contenu actuel est perdu.</string>
+    <string name="empty_lost_many">Leur contenu actuel est perdu.</string>
+    <string name="empty_light_named">La lumière s’éteindra : « %1$s », en service, est coché.</string>
+    <string name="empty_light_slot">La lumière s’éteindra : l’emplacement %1$d, en service, est coché.</string>
+    <string name="empty_generic_one">Si c’est celui en service sur le boîtier, la lumière s’éteint.</string>
+    <string name="empty_generic_many">Si l’un d’eux est celui en service sur le boîtier, la lumière s’éteint.</string>
+    <plurals name="empty_about_seconds">
+        <item quantity="one">Environ %d seconde.</item>
+        <item quantity="many">Environ %d secondes.</item>
+        <item quantity="other">Environ %d secondes.</item>
+    </plurals>
+    <plurals name="empty_about_minutes">
+        <item quantity="one">Environ %d minute, près du boîtier.</item>
+        <item quantity="many">Environ %d minutes, près du boîtier.</item>
+        <item quantity="other">Environ %d minutes, près du boîtier.</item>
+    </plurals>
+    <plurals name="empty_action">
+        <item quantity="one">Vider %d emplacement</item>
+        <item quantity="many">Vider %d emplacements</item>
+        <item quantity="other">Vider %d emplacements</item>
+    </plurals>
+    <string name="empty_progress">Emplacement %1$d · %2$d sur %3$d</string>
+    <string name="empty_stopping">Arrêt après cet emplacement…</string>
+    <string name="empty_stopped" tools:ignore="PluralsCandidate">Arrêté : %1$d emplacements vidés sur %2$d.</string>
+    <string name="empty_failed_close_only" tools:ignore="PluralsCandidate">Les %1$d emplacements sont vidés. Seule la fin de l’échange n’a pas été confirmée par le boîtier.</string>
+    <string name="empty_failed_close_only_one">L’emplacement est vidé. Seule la fin de l’échange n’a pas été confirmée par le boîtier.</string>
+    <plurals name="empty_done">
+        <item quantity="one">%d emplacement vidé.</item>
+        <item quantity="many">%d emplacements vidés.</item>
+        <item quantity="other">%d emplacements vidés.</item>
+    </plurals>
+
+    <!-- Feuille d’envoi, D31 -->
+    <string name="send_to_device">Vers %1$s · choisissez l’emplacement</string>
+    <string name="send_to_slot">Vers %1$s · emplacement %2$d</string>
+    <string name="send_choose_slot">Choisissez l’emplacement</string>
+    <string name="send_slot_fixed">Emplacement %1$d</string>
+    <string name="send_action_slot">Envoyer dans le %1$d</string>
+    <string name="send_declare_active">C’est fait, il est en service</string>
+    <string name="send_declared" tools:ignore="PluralsCandidate">Emplacement %1$d déclaré en service.</string>
+
+    <!-- Écran Connexion, D31 -->
+    <string name="wifi_network_title">Réseau Wi-Fi du boîtier</string>
+    <string name="wifi_network_headline">Lui faire rejoindre un autre réseau</string>
+    <string name="wifi_network_hint">Écrit sur le boîtier ; son adresse peut changer.</string>
+    <string name="wifi_address_warning">Ne la modifiez que si vous savez précisément ce que vous faites : réseau routé, VPN, diffusion filtrée.</string>
+</resources>
