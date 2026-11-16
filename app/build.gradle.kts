@@ -65,8 +65,11 @@ android {
 
     buildTypes {
         release {
-            // No minification yet (RIC-263 decides it for Play).
-            isMinifyEnabled = false
+            // R8 (shrinking, optimisation, obfuscation), as Bivouac: Google Play asks it of apps with more
+            // than 10 MB of DEX (Q187). Resource shrinking stays off, as Bivouac, for F-Droid's
+            // reproducible builds. Keep rules: proguard-rules.pro.
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = if (releaseSigningAvailable) signingConfigs.getByName("release") else null
         }
     }
