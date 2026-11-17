@@ -1,0 +1,1 @@
+Première version : recherche des contrôleurs sur le réseau local, programmes de journée dessinés et prévisualisés, banque de programmes avec export et import de fichiers, écriture dans les 20 emplacements, vidage d'emplacements, réglage de l'heure et du Wi-Fi du contrôleur.

@@ -1,0 +1,1 @@
+First release: find controllers on the local network, draw and preview daily programs, keep them in a bank with file export and import, write them into the 20 slots, empty slots, set the controller's clock and Wi-Fi.

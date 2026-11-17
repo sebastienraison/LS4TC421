@@ -1,0 +1,27 @@
+Light Scheduler for TC421 programs the TC421 five-channel LED controller over Wi-Fi, in place of the original app. It is made for LED lighting ramps driven by this controller, such as aquarium lights. Draw the lighting of a day, watch it on the light, then send it to the controller.
+
+Find: the app searches for your controllers on the local network. You can also add one by its address.
+
+Draw: a daily program gives each of the five channels a level for each half-hour, 48 steps a day. Each channel can have its own colour on screen.
+
+Preview: play the whole day on the light in two minutes before sending it. The controller goes back to its own program when the preview ends.
+
+Keep: a bank of programs on the phone. Export a program to a file and import it on another phone; the file format is documented.
+
+Send: write a program into one of the controller's 20 slots, or empty several slots in one go. Set the controller's clock, and the Wi-Fi network it joins.
+
+Diagnose: an exchange log lists the frames sent and received. It stays in memory and leaves the phone only if you share it.
+
+No account, no tracking, no collection:
+• Everything stays on the phone: controllers, programs and settings are never sent to a server.
+• No account, no ads, no usage statistics, no crash reports.
+• Local network only: the app talks to your controller and never connects to the Internet.
+• Free software, GPL-3.0 licence: the source code is public.
+
+Location permission: Android reveals the name of the phone's Wi-Fi network only to apps that hold it. The app uses it to pre-fill that name when you configure a controller's Wi-Fi, and never reads your position. Without it, you type the network name yourself.
+
+Independent project, not affiliated with the manufacturer of the TC421 controller. The TC421 name is used only to indicate compatibility. The communication protocol was independently reimplemented for interoperability.
+
+English and French, following the phone's language. Android 8 and later.
+
+Source code: https://github.com/sebastienraison/LS4TC421

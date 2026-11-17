@@ -1,0 +1,27 @@
+Light Scheduler for TC421 programme le contrôleur LED TC421 à cinq canaux par Wi-Fi, à la place de l'application d'origine. Elle est faite pour les rampes LED pilotées par ce contrôleur, comme celles des aquariums. Dessinez l'éclairage d'une journée, regardez-le sur la rampe, puis envoyez-le au contrôleur.
+
+Trouver : l'application cherche vos contrôleurs sur le réseau local. Vous pouvez aussi en ajouter un par son adresse.
+
+Dessiner : un programme de journée donne à chacun des cinq canaux un niveau par demi-heure, 48 pas par jour. Chaque canal peut avoir sa propre couleur à l'écran.
+
+Prévisualiser : jouez toute la journée sur la rampe en deux minutes avant de l'envoyer. Le contrôleur reprend son propre programme à la fin de l'aperçu.
+
+Conserver : une banque de programmes sur le téléphone. Exportez un programme dans un fichier et importez-le sur un autre téléphone ; le format du fichier est documenté.
+
+Envoyer : écrivez un programme dans l'un des 20 emplacements du contrôleur, ou videz plusieurs emplacements d'un coup. Réglez l'heure du contrôleur et le réseau Wi-Fi qu'il rejoint.
+
+Diagnostiquer : un journal des échanges liste les trames envoyées et reçues. Il reste en mémoire et ne quitte le téléphone que si vous le partagez.
+
+Pas de compte, pas de suivi, pas de collecte :
+• Tout reste sur le téléphone : contrôleurs, programmes et réglages ne sont jamais envoyés à un serveur.
+• Sans compte, sans publicité, sans statistiques d'usage, sans rapport de plantage.
+• Réseau local seulement : l'application parle à votre contrôleur et ne se connecte jamais à Internet.
+• Logiciel libre, sous licence GPL-3.0 : le code source est public.
+
+Permission de localisation : Android ne révèle le nom du réseau Wi-Fi du téléphone qu'aux applications qui la détiennent. L'application s'en sert pour proposer ce nom quand vous configurez le Wi-Fi d'un contrôleur, et ne lit jamais votre position. Sans elle, vous saisissez le nom du réseau vous-même.
+
+Projet indépendant, sans lien avec le fabricant du contrôleur TC421. Le nom TC421 n'est utilisé que pour indiquer la compatibilité. Le protocole de communication a été réimplémenté de façon indépendante, à des fins d'interopérabilité.
+
+Interface en français et en anglais, selon la langue du téléphone. Android 8 et plus récent.
+
+Code source : https://github.com/sebastienraison/LS4TC421
