@@ -1,3 +1,4 @@
+import com.android.build.api.variant.impl.VariantOutputImpl
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
@@ -139,4 +140,24 @@ dependencies {
     testImplementation(libs.ui.test.junit4)
     // ui-test-junit4 brings Espresso 3.5, which fails on the Android 37 framework of Robolectric.
     testImplementation(libs.espresso.core)
+}
+
+// The F-Droid recipe takes the binary from .../releases/download/v%v/LS4TC421-%v.apk, so the APK attached to
+// the GitHub release must have exactly that name: Gradle produces it directly, as in Bivouac, so that a
+// forgotten manual rename cannot silently break a release. The Variant API is the stable way to rename an
+// output with AGP 9. The -unsigned suffix is set again explicitly, because AGP replaces the name instead of
+// completing it: an unsigned release (F-Droid rebuilds without the key) must not look like a signed one.
+androidComponents {
+    onVariants(selector().withBuildType("release")) { variant ->
+        variant.outputs.forEach { output ->
+            if (output is VariantOutputImpl) {
+                output.outputFileName.set(
+                    output.versionName.map { versionName ->
+                        val unsignedSuffix = if (releaseSigningAvailable) "" else "-unsigned"
+                        "LS4TC421-$versionName$unsignedSuffix.apk"
+                    },
+                )
+            }
+        }
+    }
 }
