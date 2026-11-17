@@ -26,7 +26,7 @@
     <string name="devices_empty">No controller yet. Add one by its address, or pick one found on this network.</string>
     <string name="devices_default_name">TC421 %1$s</string>
     <string name="device_status_checking">Checking…</string>
-    <string name="device_status_reachable">Responds</string>
+    <string name="device_status_reachable">Responding</string>
     <string name="device_status_unreachable_since">Not responding · last seen %1$s</string>
     <string name="device_status_unreachable_never">Not responding · never seen</string>
     <string name="device_clock_set_on">Clock set %1$s</string>
