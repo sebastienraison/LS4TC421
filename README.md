@@ -42,4 +42,4 @@ Tests: `./gradlew :protocol:test :simulator:test :app:testDebugUnitTest`.
 
 ## License
 
-GPLv3, see [LICENSE](LICENSE).
+GPL-3.0-only: version 3 of the GNU General Public License, and only that version. See [LICENSE](LICENSE).

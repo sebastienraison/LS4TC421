@@ -1,6 +1,11 @@
+import com.android.build.api.variant.BuildConfigField
 import com.android.build.api.variant.impl.VariantOutputImpl
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.Date
+import java.util.Locale
 import java.util.Properties
 
 plugins {
@@ -11,8 +16,14 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-// Build date shown in Settings (compile date, ISO 8601 so it reads the same in every language).
-val buildDate: String = SimpleDateFormat("yyyy-MM-dd").format(Date())
+// Build date shown in Settings (ISO 8601, so it reads the same in every language). It differs per build type,
+// as in Bivouac:
+// - debug: the compile date, to tell two test builds apart;
+// - release: the date of the last commit, set lazily at the end of this file. F-Droid rebuilds the release
+//   from the tag and compares it byte for byte with the APK of the GitHub release
+//   (https://f-droid.org/docs/Reproducible_Builds/): a compile date would make two builds of the same
+//   sources differ.
+val debugBuildDate: String = SimpleDateFormat("yyyy-MM-dd").format(Date())
 
 // Release signing, as Bivouac (D26: a key of its own, the same on GitHub, F-Droid and Play).
 // Keystore path: "signing.storeFile" in local.properties (never committed), default below.
@@ -49,7 +60,6 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "1.0.0"
-        buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
     }
 
     signingConfigs {
@@ -65,6 +75,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BUILD_DATE", "\"$debugBuildDate\"")
+        }
         release {
             // R8 (shrinking, optimisation, obfuscation), as Bivouac: Google Play asks it of apps with more
             // than 10 MB of DEX (Q187). Resource shrinking stays off, as Bivouac, for F-Droid's
@@ -72,6 +85,13 @@ android {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = if (releaseSigningAvailable) signingConfigs.getByName("release") else null
+            // BUILD_DATE of the release: set at the end of this file (date of the last commit).
+            // AGP otherwise puts META-INF/version-control-info.textproto in the APK and the bundle: the commit hash
+            // from a clone, "NO_VALID_GIT_FOUND" from a worktree. Its content would depend on where the build runs,
+            // and F-Droid could not reproduce an APK built in a worktree. As in Bivouac.
+            vcsInfo {
+                include = false
+            }
         }
     }
     compileOptions {
@@ -149,6 +169,40 @@ dependencies {
 // completing it: an unsigned release (F-Droid rebuilds without the key) must not look like a signed one.
 androidComponents {
     onVariants(selector().withBuildType("release")) { variant ->
+        // BUILD_DATE of the release, read lazily: `git log` runs only when the release BuildConfig is generated,
+        // never at configuration time (which runs for every task, debug and lint included).
+        variant.buildConfigFields?.put(
+            "BUILD_DATE",
+            providers.provider {
+                // %cs: committer date, short ISO 8601, in the time zone recorded in the commit, so every machine
+                // reads the same date for the same commit. providers.exec is a tracked input, unlike a raw process.
+                val gitCommitDate: String? = try {
+                    val gitLog = providers.exec {
+                        commandLine("git", "log", "-1", "--format=%cs")
+                        isIgnoreExitValue = true
+                    }
+                    if (gitLog.result.get().exitValue == 0) gitLog.standardOutput.asText.get().trim() else null
+                } catch (e: Exception) {
+                    null
+                }
+                // Fallback outside a git clone: SOURCE_DATE_EPOCH (https://reproducible-builds.org/docs/source-date-epoch/,
+                // Unix seconds, UTC). Neither: the build fails, rather than put a plausible but wrong date in an APK
+                // whose reproducibility is checked.
+                val date = gitCommitDate?.takeIf { it.isNotEmpty() }
+                    ?: providers.environmentVariable("SOURCE_DATE_EPOCH").orNull?.let { epoch ->
+                        DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ROOT)
+                            .withZone(ZoneOffset.UTC)
+                            .format(Instant.ofEpochSecond(epoch.trim().toLong()))
+                    }
+                    ?: throw GradleException(
+                        "Cannot determine BUILD_DATE for the release: `git log -1 --format=%cs` failed and " +
+                            "SOURCE_DATE_EPOCH is not set. Build the release from a git clone, or set " +
+                            "SOURCE_DATE_EPOCH (Unix seconds, UTC).",
+                    )
+                BuildConfigField("String", "\"$date\"", "Date of the last commit (F-Droid reproducibility)")
+            },
+        )
+
         variant.outputs.forEach { output ->
             if (output is VariantOutputImpl) {
                 output.outputFileName.set(
